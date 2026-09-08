@@ -9,18 +9,18 @@ plt.rcParams["figure.figsize"] = (4, 4)
 
 """     Exercice       """
 
-#1
+#1 Création tableau
 tableau = np.array([[(255,255,255) for i in range(91)] for k in range(91)])
 plt.imshow(tableau)
 plt.show()
 print(tableau.itemsize)
 
-#2
+#2 Changement de couleur (blanc)
 tableau[:]=255
 print(tableau.shape)
 plt.imshow(tableau)
 plt.show()
-#3
+#3 idem en vert
 tableau[:]=(0,255,0)
 plt.imshow(tableau)
 plt.show()
@@ -87,7 +87,7 @@ for (l,c) in ((10,20),(100,200)):
 """ Canaux RGB de l'image   """
 #1
 im = plt.imread("data/les-mines.jpg")
-#2 et 3
+#2 et 3 Création de 3 images issus des couleurs 
 rouge=im[::,::,0]
 vert=im[::,::,1]
 bleu=im[::,::,2]
@@ -119,7 +119,7 @@ plt.show()
 
 #1
 im = plt.imread("data/les-mines.jpg")
-#2
+#2 Création du 4e cannal
 im4=np.empty((533,800,4), dtype=im.dtype)
 im4[:,:,:3]=im
 im4[:,:,3]=128
