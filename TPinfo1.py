@@ -1,3 +1,6 @@
+""""
+Eléonore Veyron
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -5,7 +8,7 @@ import matplotlib.pyplot as plt
 plt.rcParams["figure.figsize"] = (4, 4)
 
 """     Exercice       """
-"""
+
 #1
 tableau = np.array([[(255,255,255) for i in range(91)] for k in range(91)])
 plt.imshow(tableau)
@@ -33,7 +36,7 @@ while k<91:
     k+=10
 plt.imshow(tableau)
 plt.show()
-"""
+
 """     Lecture d'une image en couleur     """
 #1
 im = plt.imread("data/les-mines.jpg")
@@ -88,7 +91,7 @@ im = plt.imread("data/les-mines.jpg")
 rouge=im[::,::,0]
 vert=im[::,::,1]
 bleu=im[::,::,2]
-plt.imshow(rouge,map ='Reds')
+plt.imshow(rouge,cmap ='Reds')
 plt.show()
 plt.imshow(vert, cmap='Greens')
 plt.show()
@@ -112,4 +115,33 @@ plt.show()
 plt.imshow(copie2[-200:,-200:])
 plt.show()
 
+"""     Transparence des images     """
 
+#1
+im = plt.imread("data/les-mines.jpg")
+#2
+im4=np.empty((533,800,4), dtype=im.dtype)
+im4[:,:,:3]=im
+im4[:,:,3]=128
+plt.imshow(im4)
+plt.show()
+
+""" Image en niveaux de gris en float   """
+#1
+im=plt.imread("data/les-mines.jpg")
+#2
+im_float=im/255
+plt.imshow(im_float)
+plt.show()
+#3
+gris_moyenne=im_float.mean(axis=2)
+plt.imshow(gris_moyenne,cmap='gray')
+plt.show()
+
+gris2= 0.299*im_float[:,:,0] + 0.587*im_float[:,:,1]+ 0.144*im_float[:,:,2]
+plt.imshow(gris2, cmap='gray')
+plt.show()
+#4
+gris3=gris_moyenne**2
+plt.imshow(gris3,cmap="gray")
+plt.show()
