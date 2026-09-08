@@ -1,16 +1,18 @@
-# /// script
-# requires-python = ">=X.XX" TODO: Update this to the minimum Python version you want to support
-# dependencies = [
-#   TODO: Add any dependencies your script requires
-# ]
-# ///
+import numpy as np
+import matplotlib.pyplot as plt
 
-# TODO: Update the main function to your needs or remove it.
+#Defaut figures matplotlib
+plt.rcParams["figure.figsize"] = (4, 4)
 
+#Exercice
+#1
+tableau = np.array([[(255,255,255) for i in range(91)] for k in range(91)])
+plt.imshow(tableau)
+plt.show
+print(tableau.itemsize)
 
-def main() -> None:
-    print("Start coding in Python today!")
+#2
+tableau[:]=0
+print(tableau.shape)
 
-
-if __name__ == "__main__":
-    main()
+#3
